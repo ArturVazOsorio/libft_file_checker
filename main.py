@@ -29,7 +29,8 @@ part1_files = {
 	'ft_strdup.c' 	: ProjectFile('ft_strdup', 'char\t*ft_strdup(const char *s)', []),
 	'Makefile' 		: ProjectFile('Makefile', None, None),
 	'libft.h' 		: ProjectFile('libft.h', None, None),
-	'.git'			: ProjectFile('.git', None, None)
+	'.git'			: ProjectFile('.git', None, None),
+    'README.md'     : ProjectFile('README.md', None, None)
 }
 
 part2_files = {
@@ -46,7 +47,7 @@ part2_files = {
 	'ft_putnbr_fd.c'	: ProjectFile('ft_putnbr_fd', 'void\tft_putnbr_fd(int n, int fd)', ['write'])
 }
 
-bonus_files = {
+part3_files = {
 	'ft_lstnew.c' 		: ProjectFile('ft_lstnew', 't_list\t*ft_lstnew(void *content)', ['malloc']),
 	'ft_lstadd_front.c' : ProjectFile('ft_lstadd_front', 'void\tft_lstadd_front(t_list **lst, t_list *new)', None),
 	'ft_lstsize.c' 		: ProjectFile('ft_lstsize', 'int\tft_lstsize(t_list *lst)', None),
@@ -70,13 +71,13 @@ def read_delivered_files() -> list:
 
 	for entry in entries:
 		entry = entry.replace('_bonus', '')
-		
+
 		if part1_files.get(entry) is not None:
 			part1_files[entry].wasDelivered = True
 		elif part2_files.get(entry) is not None:
 			part2_files[entry].wasDelivered = True
-		elif bonus_files.get(entry) is not None:
-			bonus_files[entry].wasDelivered = True
+		elif part3_files.get(entry) is not None:
+			part3_files[entry].wasDelivered = True
 		else:
 			unknown_files[entry] = ProjectFile(entry, None, None)
 			unknown_files[entry].wasDelivered = True
@@ -89,7 +90,7 @@ if __name__ == '__main__':
 	# Merges all 3 dictionaries into a new one to be easily used on prototype parsing
 	full_dict = copy.deepcopy(part1_files)
 	full_dict.update(part2_files)
-	full_dict.update(bonus_files)
+	full_dict.update(part3_files)
 
 	full_dict2 = copy.deepcopy(full_dict)
 
@@ -106,25 +107,25 @@ if __name__ == '__main__':
 		parser.parse_filenames(part1_files, 'PART I')
 		parser.parse_filenames(part2_files, 'PART II')
 	elif option == '3':
-		parser.parse_filenames(bonus_files, 'BONUS PART')
+		parser.parse_filenames(part3_files, 'PART III')
 	elif option == '4':
 		parser.parse_norminette_result()
 	elif option == '5':
 		parser.parse_function_prototypes(full_dict)
 	elif option == '6':
-		parser.parse_headerfile_prototypes(full_dict2)	
+		parser.parse_headerfile_prototypes(full_dict2)
 		pass
 	elif option == '7':
 		parser.parse_unknown_files(unknown_files)
 		parser.parse_filenames(part1_files, 'PART I')
 		parser.parse_filenames(part2_files, 'PART II')
-		parser.parse_filenames(bonus_files, 'BONUS PART')
+		parser.parse_filenames(part3_files, 'PART III')
 		parser.parse_norminette_result()
 		parser.parse_function_prototypes(full_dict)
 		parser.parse_headerfile_prototypes(full_dict2)
 	else:
-		print(f'\n\t--- Option \'{option}\' not supported. Aborting. ---\n\n')	
+		print(f'\n\t--- Option \'{option}\' not supported. Aborting. ---\n\n')
 
-	
-	
-	
+
+
+

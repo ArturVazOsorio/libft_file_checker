@@ -70,9 +70,9 @@ It prints out any extraneous files/folders your repository contains. Here's an e
 |:--:|:--:|
 |![image](https://user-images.githubusercontent.com/93390807/201247416-c38b9607-55b8-4dca-bf59-0ec552a249c9.png)|![image](https://user-images.githubusercontent.com/93390807/201247355-c51032fc-4c2b-42e8-9f6c-ccfb7614f8e6.png)|
 
-**2./3. Check filenames for Mandatory/Bonus files**
+**2./3. Check filenames for Mandatory**
 
-It prints out the result of checking if every Mandatory/Bonus part file was delivered. Unless you chose the last option, you can chose to run this parts separately, since the Bonus part is optional. Here's an example of possible outputs: 
+It prints out the result of checking if every Mandatory part file was delivered. Unless you chose the last option, you can chose to run this parts separately. Here's an example of possible outputs: 
 
 | Good Example | Bad Example |
 |:--:|:--:|
